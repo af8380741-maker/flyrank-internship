@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="settings-card" aria-labelledby="settings-title">
+        <header class="settings-header">
+          <h1 id="settings-title">Settings</h1>
+          <p class="settings-subtitle">Update your profile and preferences.</p>
+        </header>
+
+        <form id="settings-form" novalidate>
+          <div class="form-group">
+            <label for="display-name">Display name</label>
+            <input
+              id="display-name"
+              name="displayName"
+              type="text"
+              autocomplete="name"
+              placeholder="Jane Doe"
+              required
+              minlength="2"
+              maxlength="50"
+            />
+            <p class="error-message" id="display-name-error" role="alert"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="jane@example.com"
+              required
+            />
+            <p class="error-message" id="email-error" role="alert"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              placeholder="janedoe"
+              required
+              minlength="3"
+              maxlength="20"
+              pattern="^[a-zA-Z0-9_]+$"
+            />
+            <p class="hint">Letters, numbers, and underscores only.</p>
+            <p class="error-message" id="username-error" role="alert"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea
+              id="bio"
+              name="bio"
+              rows="3"
+              maxlength="160"
+              placeholder="Tell us a little about yourself."
+            ></textarea>
+            <div class="field-footer">
+              <p class="error-message" id="bio-error" role="alert"></p>
+              <span class="char-count" id="bio-count">0 / 160</span>
+            </div>
+          </div>
+
+          <fieldset class="form-group">
+            <legend>Preferences</legend>
+
+            <label class="checkbox-label" for="notifications">
+              <input id="notifications" name="notifications" type="checkbox" />
+              Email me about account activity
+            </label>
+
+            <div class="select-group">
+              <label for="theme">Theme</label>
+              <select id="theme" name="theme" required>
+                <option value="">Select a theme</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="system">System</option>
+              </select>
+              <p class="error-message" id="theme-error" role="alert"></p>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <button type="submit" class="btn btn-primary">Save settings</button>
+          </div>
+
+          <p class="success-message" id="form-success" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
